@@ -1,0 +1,415 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Memories | Thea & Joe</title>
+
+    <style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background-color: #fffaf7;
+    color: #49333a;
+    line-height: 1.7;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* 2. NAVIGATION BAR */
+
+header {
+    width: 100%;
+    padding: 22px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fffaf7;
+    border-bottom: 1px solid #f1dedb;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 27px;
+    color: #8c4356;
+    font-style: italic;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+nav a {
+    font-size: 15px;
+    color: #63434b;
+    transition: color 0.3s ease;
+}
+
+nav a:hover,
+nav a.active {
+    color: #b35e75;
+    border-bottom: 1px solid #b35e75;
+}
+
+/* 3. HERO SECTION */
+
+.hero {
+    min-height: 75vh;
+    background:
+        linear-gradient(
+            rgba(40, 20, 28, 0.35),
+            rgba(40, 20, 28, 0.50)
+        ),
+        url("images/hero.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+    color: white;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero-content p:first-child {
+    font-size: 17px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 8vw, 75px);
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 19px;
+}
+
+/* 4. TIMELINE SECTION */
+
+section {
+    padding: 80px 10%;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.section-heading h2 {
+    font-size: 38px;
+    color: #8c4356;
+    font-weight: normal;
+}
+
+.section-heading p {
+    color: #947c82;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+/* 5. TIMELINE DESIGN */
+
+.timeline {
+    max-width: 800px;
+    margin: auto;
+    position: relative;
+    padding-left: 40px;
+}
+
+/* Vertical timeline line */
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 7px;
+    top: 5px;
+    bottom: 5px;
+    width: 2px;
+    background-color: #d9a8b2;
+}
+
+/* Individual memory */
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 45px;
+    padding: 25px 30px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(100, 50, 60, 0.07);
+    transition: transform 0.3s ease;
+}
+
+.timeline-item:hover {
+    transform: translateX(6px);
+}
+
+/* Timeline circles */
+
+.timeline-item::before {
+    content: "♡";
+    position: absolute;
+    left: -45px;
+    top: 25px;
+    width: 28px;
+    height: 28px;
+    background-color: #a64d65;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+}
+
+/* Memory dates */
+
+.timeline-item .date {
+    color: #b35e75;
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+/* Memory headings */
+
+.timeline-item h3 {
+    color: #8c4356;
+    font-size: 23px;
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+
+/* Memory descriptions */
+
+.timeline-item p {
+    color: #806c72;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* 6. FOOTER */
+
+footer {
+    background-color: #71394b;
+    color: #fffaf7;
+    text-align: center;
+    padding: 30px 15px;
+}
+
+footer p {
+    font-size: 14px;
+    margin: 5px;
+}
+
+/* 7. RESPONSIVE DESIGN */
+
+@media (max-width: 850px) {
+
+    header {
+        padding: 20px 5%;
+    }
+
+    nav {
+        gap: 15px;
+    }
+
+    section {
+        padding: 60px 7%;
+    }
+}
+
+@media (max-width: 600px) {
+
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    nav a {
+        font-size: 13px;
+    }
+
+    .hero {
+        min-height: 65vh;
+    }
+
+    .hero h1 {
+        font-size: 43px;
+    }
+
+    .hero-content p {
+        font-size: 15px;
+    }
+
+    .section-heading h2 {
+        font-size: 30px;
+    }
+
+    .timeline {
+        padding-left: 32px;
+    }
+
+    .timeline-item {
+        padding: 20px;
+    }
+
+    .timeline-item::before {
+        left: -38px;
+    }
+
+    .timeline-item h3 {
+        font-size: 20px;
+    }
+
+    .timeline-item p {
+        font-size: 14px;
+    }
+}
+
+    </style>
+    
+</head>
+
+<body>
+
+    <header>
+        <a href="TJ.html" class="logo">T∞J♡</a>
+
+        <nav>
+            <a href="TJ.html">Our Story</a>
+            <a href="memories.html" class="active">Memories</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="forever.html">Forever</a>
+            <a href="Open when.html">Open When...</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="hero">
+            <div class="hero-content">
+                <p>Every moment has a place in our hearts</p>
+                <h1>Our Memories</h1>
+                <p>A timeline of the little and big things that make us, us.</p>
+            </div>
+        </div>
+
+        <section>
+            <div class="section-heading">
+                <h2>Chapters of Our Love</h2>
+                <p>Every date tells a story. Every memory means something.</p>
+            </div>
+
+            <div class="timeline">
+
+                <div class="timeline-item">
+                    <p class="date">2023</p>
+                    <h3>The First Meeting</h3>
+                    <p>
+                        We met at Joe's birthday celebration through
+                        a mutual friend. Little did we know what was ahead.
+                    </p>
+                </div>
+
+                <div class="timeline-item">
+                    <p class="date">7 November 2024</p>
+                    <h3>The Beginning of Us</h3>
+                    <p>
+                        The day we officially started our relationship.
+                        A new chapter, a new adventure, and a beautiful beginning.
+                    </p>
+                </div>
+
+                <div class="timeline-item">
+                    <p class="date">2025</p>
+                    <h3>Growing Together</h3>
+                    <p>
+                        A year of learning, loving, supporting each other
+                        and creating memories across the distance.
+                    </p>
+                </div>
+
+                <div class="timeline-item">
+                    <p class="date">24 September 2026</p>
+                    <h3>The Engagement</h3>
+                    <p>
+                        We made a beautiful promise to spend our lives together.
+                        The beginning of our forever chapter.
+                    </p>
+                </div>
+
+                <div class="timeline-item">
+                    <p class="date">28 August 2027</p>
+                    <h3>Our Traditional Wedding</h3>
+                    <p>
+                        Celebrating our love, our families, our cultures
+                        and the joining of two lives.
+                    </p>
+                </div>
+
+                <div class="timeline-item">
+                    <p class="date">4 September 2027</p>
+                    <h3>Our White Wedding</h3>
+                    <p>
+                        Before God, our families and loved ones,
+                        we begin our forever as husband and wife.
+                    </p>
+                </div>
+
+                <div class="timeline-item">
+                    <p class="date">And many years to come...</p>
+                    <h3>More Life, More Love</h3>
+                    <p>
+                        More adventures, more laughter, more lessons,
+                        more prayers and countless memories still to be made.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Our past, our present, our forever. ♡</p>
+        <p>Thea & Joe</p>
+    </footer>
+
+</body>
+</html>

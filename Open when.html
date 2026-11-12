@@ -1,0 +1,742 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Open When... | Thea & Joe</title>
+    <style>
+
+/* GENERAL RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background-color: #fffaf7;
+    color: #49333a;
+    line-height: 1.7;
+}
+
+.no-scroll {
+    overflow: hidden;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+header {
+    width: 100%;
+    padding: 22px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fffaf7;
+    border-bottom: 1px solid #f1dedb;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* LOGO */
+.logo {
+    font-size: 27px;
+    color: #8c4356;
+    font-style: italic;
+    font-weight: bold;
+}
+
+/* NAVIGATION */
+header {
+    background-color: #fffaf8;
+    padding: 20px 5%;
+    box-shadow: 0 2px 10px rgba(80, 35, 50, 0.06);
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 28px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #633b46;
+    font-size: 15px;
+    transition: color 0.3s ease;
+}
+
+nav a:hover,
+nav a.active {
+    color: #a34d65;
+}
+
+/* HERO SECTION */
+.hero {
+    min-height: 390px;
+    background: linear-gradient(
+        rgba(73, 32, 45, 0.55),
+        rgba(73, 32, 45, 0.55)
+    ),
+    url("images/hero.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    padding: 60px 20px;
+    color: white;
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.small-heading {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 12px;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: clamp(40px, 7vw, 65px);
+    margin-bottom: 15px;
+    font-weight: normal;
+}
+
+.hero-content > p:not(.small-heading) {
+    font-size: 17px;
+    margin-bottom: 25px;
+}
+
+.hero-button {
+    display: inline-block;
+    background-color: #fffaf8;
+    color: #713c4c;
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.hero-button:hover {
+    background-color: #e9c5cc;
+    transform: translateY(-3px);
+}
+
+/* INTRODUCTION */
+.intro {
+    max-width: 750px;
+    margin: 75px auto 35px;
+    padding: 0 25px;
+    text-align: center;
+}
+
+.section-label {
+    color: #ad6478;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 12px;
+    margin-bottom: 12px;
+}
+
+.intro h2 {
+    font-size: 34px;
+    font-weight: normal;
+    margin-bottom: 18px;
+}
+
+.intro > p:not(.section-label) {
+    color: #795c62;
+    font-size: 16px;
+}
+
+.instruction {
+    margin-top: 20px;
+    color: #a34d65 !important;
+    font-style: italic;
+}
+
+/* ENVELOPE GRID */
+.letters-section {
+    padding: 30px 7% 90px;
+}
+
+.envelope-grid {
+    max-width: 1100px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+/* ENVELOPE CARDS */
+.envelope-card {
+    position: relative;
+    min-height: 205px;
+    padding: 25px 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+
+    border: 1px solid #ead0d4;
+    border-radius: 8px;
+
+    background: linear-gradient(
+        145deg,
+        #fff2f1,
+        #f7e1e2
+    );
+
+    color: #633b46;
+    font-family: Georgia, "Times New Roman", serif;
+    text-align: center;
+
+    cursor: pointer;
+
+    box-shadow: 0 6px 18px rgba(100, 45, 60, 0.08);
+
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease,
+                background 0.3s ease;
+}
+
+.envelope-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 0;
+    height: 0;
+
+    border-left: 50% solid transparent;
+}
+
+.envelope-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 12px 25px rgba(100, 45, 60, 0.15);
+    background: #f9e5e6;
+}
+
+.envelope-card:focus-visible {
+    outline: 3px solid #a34d65;
+    outline-offset: 4px;
+}
+
+.envelope-icon {
+    font-size: 48px;
+    line-height: 1;
+    color: #a34d65;
+}
+
+.envelope-title {
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.envelope-hint {
+    color: #956b73;
+    font-size: 13px;
+    font-style: italic;
+}
+
+/* LETTER POPUP BACKGROUND */
+.letter-overlay {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(40, 18, 27, 0.72);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+    z-index: 1000;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: opacity 0.3s ease,
+                visibility 0.3s ease;
+}
+
+.letter-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* LETTER POPUP */
+.letter-popup {
+    position: relative;
+
+    width: 100%;
+    max-width: 570px;
+    max-height: 90vh;
+    overflow-y: auto;
+
+    background-color: #fffaf3;
+    padding: 45px 45px 35px;
+
+    border: 1px solid #ead6c7;
+    border-radius: 5px;
+
+    text-align: center;
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+
+    transform: translateY(35px) scale(0.92);
+    opacity: 0;
+}
+
+.letter-popup.unfold {
+    animation: unfoldLetter 0.75s ease forwards;
+}
+
+/* UNFOLDING ANIMATION */
+@keyframes unfoldLetter {
+
+    0% {
+        opacity: 0;
+        transform: translateY(35px) scaleY(0.2);
+        transform-origin: top center;
+    }
+
+    55% {
+        opacity: 1;
+        transform: translateY(0) scaleY(1.04);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scaleY(1);
+    }
+
+}
+
+/* CLOSE BUTTON */
+.close-letter {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+
+    border: none;
+    background: none;
+
+    font-size: 32px;
+    color: #8a5965;
+
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-letter:hover {
+    color: #b14f6a;
+}
+
+/* LETTER CONTENT */
+.letter-decoration {
+    color: #b56d80;
+    font-size: 35px;
+    margin-bottom: 5px;
+}
+
+.letter-label {
+    color: #a66a79;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.letter-popup h2 {
+    font-size: 28px;
+    font-weight: normal;
+    color: #733e4e;
+    margin-bottom: 25px;
+}
+
+.letter-paper {
+    background-color: #fffdf9;
+    border: 1px solid #f0e3d7;
+    padding: 28px 25px;
+    text-align: left;
+    box-shadow: 0 4px 12px rgba(80, 45, 30, 0.05);
+}
+
+#letterContent {
+    white-space: pre-line;
+    font-size: 16px;
+    line-height: 1.9;
+    color: #654c4e;
+}
+
+.letter-signature {
+    margin-top: 25px;
+    color: #8c4d60;
+    font-style: italic;
+    line-height: 1.8;
+}
+
+.letter-footer {
+    margin-top: 20px;
+    color: #a66a79;
+    font-size: 13px;
+    font-style: italic;
+}
+
+/* FOOTER */
+footer {
+    background-color: #6b3a49;
+    color: #fff5f3;
+    text-align: center;
+    padding: 25px 15px;
+    font-size: 14px;
+}
+
+footer p + p {
+    margin-top: 5px;
+    font-size: 12px;
+    opacity: 0.85;
+}
+
+/* TABLETS */
+@media (max-width: 850px) {
+
+    .envelope-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .intro h2 {
+        font-size: 29px;
+    }
+
+}
+
+/* MOBILE PHONES */
+@media (max-width: 550px) {
+
+    nav {
+        gap: 15px;
+    }
+
+    nav a {
+        font-size: 13px;
+    }
+
+    .hero {
+        min-height: 320px;
+    }
+
+    .hero-content > p:not(.small-heading) {
+        font-size: 15px;
+    }
+
+    .intro {
+        margin-top: 50px;
+    }
+
+    .intro h2 {
+        font-size: 27px;
+    }
+
+    .envelope-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .envelope-card {
+        min-height: 175px;
+    }
+
+    .letter-popup {
+        padding: 40px 22px 25px;
+    }
+
+    .letter-popup h2 {
+        font-size: 23px;
+    }
+
+    .letter-paper {
+        padding: 20px 17px;
+    }
+
+    #letterContent {
+        font-size: 15px;
+    }
+
+}
+
+    </style>
+
+</head>
+
+<body>
+
+    
+    <header>
+    <a href="TJ.html" class="logo">T∞J ♡</a>
+
+    <nav>
+        <a href="TJ.html">Our Story</a>
+        <a href="Memories.html">Memories</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="forever.html">Forever</a>
+        <a href="Open when.html" class="active">Open When...</a>
+    </nav>
+</header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <p class="small-heading">A little something from me to you Papi♡</p>
+            <h1>Open When...</h1>
+            <p>
+                For the days when I cannot be right beside you,
+                here are a few little reminders that you are loved and cherished.
+            </p>
+            <a href="#letters" class="hero-button">Find your letter ♡</a>
+        </div>
+    </section>
+
+    <!-- Introduction -->
+    <section class="intro">
+        <p class="section-label">To my favourite man</p>
+
+        <h2>Little letters, just for you</h2>
+
+        <p>
+            Each envelope holds a little piece of my heart.
+            Choose one whenever you need a smile, reminder,
+            a little encouragement or simply a reminder of us.
+        </p>
+
+        <p class="instruction">Click an envelope to open your letter ♡</p>
+    </section>
+
+    <!-- Open When Envelops -->
+    <section class="letters-section" id="letters">
+
+        <div class="envelope-grid">
+
+            <button class="envelope-card"
+                data-title="Open when you miss me"
+                data-letter="My love, if you are reading this, I hope you know that you are missed too. Even when we are apart, you are always in my thoughts. I cannot wait for the next moment I get to see you, hold you and remind you just how much you mean to me. Until then, carry a little piece of my heart with you. Nkwendha Inho">
+                <span class="envelope-icon">✉</span>
+                <span class="envelope-title">Open when you miss me</span>
+                <span class="envelope-hint">A little reminder of us</span>
+            </button>
+
+            <button class="envelope-card"
+                data-title="Open when you've had a difficult day"
+                data-letter="My love, take a breath. You do not have to have everything figured out today. I am proud of you, even on the days when things do not go according to plan. Rest when you need to, give yourself grace and remember that you do not have to carry everything alone. I am cheering you on from here, always.">
+                <span class="envelope-icon">✉</span>
+                <span class="envelope-title">Open when you've had a difficult day</span>
+                <span class="envelope-hint">A little comfort for you</span>
+            </button>
+
+            <button class="envelope-card"
+                data-title="Open when you need encouragement"
+                data-letter="Darling, I hope you never forget how capable you are. I see your effort, your determination and the dreams you are working towards. Keep going, one step at a time. I believe in you, and I hope you believe in yourself too. Nkendha Inho,Papi">
+                <span class="envelope-icon">✉</span>
+                <span class="envelope-title">Open when you need encouragement</span>
+                <span class="envelope-hint">I believe in you</span>
+            </button>
+
+            <button class="envelope-card"
+                data-title="Open when you cannot sleep"
+                data-letter="If the night feels a little too long, I hope this note brings you some peace. Slow down, breathe and let the worries of today rest. May God watch over you and give you a peaceful night. I wish I could be there to hold you close. Sleep well, my love and count some sheep,hihi">
+                <span class="envelope-icon">✉</span>
+                <span class="envelope-title">Open when you cannot sleep</span>
+                <span class="envelope-hint">A peaceful thought for tonight</span>
+            </button>
+
+            <button class="envelope-card"
+                data-title="Open when you need to smile"
+                data-letter="Hello, handsome, hottest man alive. Have you even looked at yourself in the mirror? This is your official reminder that you have a very lovely girl who thinks the world of you. Yes, that would be me... I hope you are smiling by now. Remember our little moments, our laughter and all the beautiful things still waiting for us. They are so many baby">
+                <span class="envelope-icon">✉</span>
+                <span class="envelope-title">Open when you need to smile</span>
+                <span class="envelope-hint">A little happiness from me</span>
+            </button>
+
+            <button class="envelope-card"
+                data-title="Open when we have disagreed"
+                data-letter="My love, even when we do not see things the same way, I want us to remember that we are on the same team. I want us to listen, understand, speak honestly and choose kindness. Our disagreements do not have to define us. I still choose you, and I want us to keep choosing each other with patience and grace.">
+                <span class="envelope-icon">✉</span>
+                <span class="envelope-title">Open when we have disagreed</span>
+                <span class="envelope-hint">A reminder to choose us</span>
+            </button>
+
+            <button class="envelope-card"
+                data-title="Open when you need to remember how much I love you"
+                data-letter="I love you in the ordinary moments, in the laughter, in the plans we make and in the quiet moments when we are simply together. I am grateful for the story we are writing and for the person I get to share it with. You are loved, deeply and intentionally.">
+                <span class="envelope-icon">✉</span>
+                <span class="envelope-title">Open when you need to remember how much I love you</span>
+                <span class="envelope-hint">Straight from my heart</span>
+            </button>
+
+            <button class="envelope-card"
+                data-title="Open on your birthday"
+                data-letter="Happy birthday, my love! I thank God for your life and for the gift of knowing you. May this new year bring you good health, wisdom, peace, new opportunities and beautiful reasons to smile. I hope you always feel celebrated, appreciated and loved. I am so happy I get to do life with you.">
+                <span class="envelope-icon">✉</span>
+                <span class="envelope-title">Open on your birthday</span>
+                <span class="envelope-hint">A birthday wish from your girl</span>
+            </button>
+
+            <button class="envelope-card"
+                data-title="Open on our anniversary 7 November"
+                data-letter="My love, Do you remember this day? The day you asked me to be your girlfriend? Little did we know that one question would become the beginning of so many beautiful memories, lessons, laughter and a love story that would lead us all the way here. If I could go back to that day, knowing everything I know now, I would still say yes. Yes to you, yes to us, yes to growing together, and yes to all the beautiful chapters we are yet to write.
+Thank you for being my person, for loving me, for choosing me and for giving me so many reasons to look forward to our tomorrow. Look at us, Papi. From that little beginning to planning a forever. And somehow, I still get butterflies knowing that I get to call you mine. Happy anniversary, love. May God continue to guide our steps, protect what we are building and bless the beautiful life ahead of us. I would choose you again. Every single time.
+">
+                <span class="envelope-icon">✉</span>
+                <span class="envelope-title">Open on our anniversary</span>
+                <span class="envelope-hint">7 November – The day we became us </span>
+            </button>
+
+            <button class="envelope-card"
+                data-title="Open on our wedding day"
+                data-letter="My husband, today we begin a beautiful new chapter. As I stand beside you, I want you to know that I am grateful for the journey that brought us here. I pray that our home will always be filled with faith, friendship, laughter, patience and love. Today, tomorrow and in all the years ahead, I choose you.">
+                <span class="envelope-icon">✉</span>
+                <span class="envelope-title">Open on our wedding day</span>
+                <span class="envelope-hint">For the beginning of forever</span>
+            </button>
+
+        </div>
+    </section>
+
+    <!-- Letter Popup -->
+    <div class="letter-overlay" id="letterOverlay" aria-hidden="true">
+
+        <div class="letter-popup" role="dialog"
+            aria-modal="true" aria-labelledby="letterTitle">
+
+            <button class="close-letter" id="closeLetter"
+                aria-label="Close letter">&times;</button>
+
+            <div class="letter-decoration">♡</div>
+
+            <p class="letter-label">A letter from me to you</p>
+
+            <h2 id="letterTitle">My love...</h2>
+
+            <div class="letter-paper">
+                <p id="letterContent"></p>
+
+                <p class="letter-signature">
+                    Forever yours,<br>
+                    Your Ladybird ♡
+                </p>
+            </div>
+
+            <p class="letter-footer">With all my love, always. Just the two of us ♡</p>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Made with love, for my favourite person. ♡</p>
+        <p>Thea & Joe | Our Story, Our Forever</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        const envelopeCards = document.querySelectorAll(".envelope-card");
+
+        const letterOverlay = document.getElementById("letterOverlay");
+        const letterTitle = document.getElementById("letterTitle");
+        const letterContent = document.getElementById("letterContent");
+        const closeLetter = document.getElementById("closeLetter");
+
+        let lastOpenedEnvelope = null;
+
+        // Open a letter when an envelope is clicked
+        envelopeCards.forEach(function(envelope) {
+
+            envelope.addEventListener("click", function() {
+
+                const title = envelope.dataset.title;
+                const message = envelope.dataset.letter;
+
+                lastOpenedEnvelope = envelope;
+
+                letterTitle.textContent = title;
+                letterContent.textContent = message;
+
+                letterOverlay.classList.add("show");
+                letterOverlay.setAttribute("aria-hidden", "false");
+
+                document.body.classList.add("no-scroll");
+
+                // Restart the unfolding animation
+                const popup = document.querySelector(".letter-popup");
+                popup.classList.remove("unfold");
+
+                void popup.offsetWidth;
+
+                popup.classList.add("unfold");
+
+                closeLetter.focus();
+
+            });
+
+        });
+
+        // Close the letter
+        function closeTheLetter() {
+
+            letterOverlay.classList.remove("show");
+            letterOverlay.setAttribute("aria-hidden", "true");
+
+            document.body.classList.remove("no-scroll");
+
+            if (lastOpenedEnvelope) {
+                lastOpenedEnvelope.focus();
+            }
+
+        }
+
+        closeLetter.addEventListener("click", closeTheLetter);
+
+        // Close when clicking outside the letter
+        letterOverlay.addEventListener("click", function(event) {
+
+            if (event.target === letterOverlay) {
+                closeTheLetter();
+            }
+
+        });
+
+        // Close when the Escape key is pressed
+        document.addEventListener("keydown", function(event) {
+
+            if (event.key === "Escape" && letterOverlay.classList.contains("show")) {
+                closeTheLetter();
+            }
+
+        });
+    </script>
+
+</body>
+</html>

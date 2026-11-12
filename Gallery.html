@@ -1,0 +1,343 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Gallery | Thea & Joe</title>
+    <style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background-color: #fffaf7;
+    color: #49333a;
+    line-height: 1.7;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* 2. NAVIGATION BAR */
+
+header {
+    width: 100%;
+    padding: 22px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fffaf7;
+    border-bottom: 1px solid #f1dedb;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 27px;
+    color: #8c4356;
+    font-style: italic;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+nav a {
+    font-size: 15px;
+    color: #63434b;
+    transition: color 0.3s ease;
+}
+
+nav a:hover,
+nav a.active {
+    color: #b35e75;
+    border-bottom: 1px solid #b35e75;
+}
+
+/* 3. HERO SECTION */
+
+.hero {
+    min-height: 75vh;
+
+    background:
+        linear-gradient(
+            rgba(40, 20, 28, 0.35),
+            rgba(40, 20, 28, 0.50)
+        ),
+        url("images/hero.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+    color: white;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero-content p:first-child {
+    font-size: 17px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 8vw, 75px);
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 19px;
+}
+
+/* 4. GALLERY SECTION */
+
+section {
+    padding: 80px 8%;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-heading h2 {
+    font-size: 38px;
+    color: #8c4356;
+    font-weight: normal;
+}
+
+.section-heading p {
+    color: #947c82;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+/* 5. GALLERY GRID */
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Individual gallery photographs */
+
+.gallery-grid img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    display: block;
+    border-radius: 12px;
+    transition: transform 0.4s ease,
+                box-shadow 0.4s ease;
+    cursor: pointer;
+}
+
+/* Image hover effect */
+
+.gallery-grid img:hover {
+    transform: scale(1.04);
+    box-shadow: 0 10px 25px rgba(100, 50, 60, 0.18);
+}
+
+/* 6. GALLERY CAPTIONS (OPTIONAL) */
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    background-color: white;
+    padding: 8px;
+    box-shadow: 0 5px 20px rgba(100, 50, 60, 0.08);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 330px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.04);
+}
+
+.gallery-caption {
+    padding: 12px 8px;
+    text-align: center;
+}
+
+.gallery-caption h3 {
+    color: #8c4356;
+    font-size: 19px;
+    font-weight: normal;
+}
+
+.gallery-caption p {
+    color: #90777d;
+    font-size: 14px;
+}
+
+/* 7. FOOTER */
+
+footer {
+    background-color: #71394b;
+    color: #fffaf7;
+    text-align: center;
+    padding: 30px 15px;
+}
+
+footer p {
+    font-size: 14px;
+    margin: 5px;
+}
+
+/* 8. RESPONSIVE DESIGN */
+
+@media (max-width: 900px) {
+
+    header {
+        padding: 20px 5%;
+    }
+
+    nav {
+        gap: 15px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    section {
+        padding: 60px 6%;
+    }
+}
+
+@media (max-width: 600px) {
+
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    nav a {
+        font-size: 13px;
+    }
+
+    .hero {
+        min-height: 65vh;
+    }
+
+    .hero h1 {
+        font-size: 43px;
+    }
+
+    .hero-content p {
+        font-size: 15px;
+    }
+
+    .section-heading h2 {
+        font-size: 30px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .gallery-grid img {
+        height: 320px;
+    }
+
+    .gallery-item img {
+        height: 300px;
+    }
+}
+
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="TJ.html" class="logo">T∞J ♡</a>
+
+        <nav>
+            <a href="TJ.html">Our Story</a>
+            <a href="memories.html">Memories</a>
+            <a href="gallery.html" class="active">Gallery</a>
+            <a href="forever.html">Forever</a>
+            <a href="open-when.html">Open When...</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="hero">
+            <div class="hero-content">
+                <p>A picture is worth a thousand words</p>
+                <h1>Our Little Gallery</h1>
+                <p>Beautiful moments, frozen in time.</p>
+            </div>
+        </div>
+
+        <section>
+            <div class="section-heading">
+                <h2>Our Favourite Moments</h2>
+                <p>A collection of the memories we never want to forget.</p>
+            </div>
+
+            <div class="gallery-grid">
+                <img src="sanane.jpeg" alt="One of my favourite memories">
+                <img src="wedding.JPG" alt="A day you showed me off">
+                <img src="pasa.jpeg" alt="A special moment">
+                <img src="vasary.JPG" alt="Our first anniversary together">
+                <img src="ring.JPG" alt="My favourite picture">
+                <img src="mwanza.jpeg" alt="Another beautiful adventure">
+                <img src="halloween.jpeg" alt="Wild together">
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Collecting moments, not just photographs. ♡</p>
+        <p>Thea & Joe</p>
+    </footer>
+
+</body>
+</html>

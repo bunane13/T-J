@@ -1,0 +1,520 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forever | Thea & Joe</title>
+    <style>
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background-color: #fffaf7;
+    color: #49333a;
+    line-height: 1.7;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* 2. NAVIGATION BAR */
+
+header {
+    width: 100%;
+    padding: 22px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fffaf7;
+    border-bottom: 1px solid #f1dedb;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 27px;
+    color: #8c4356;
+    font-style: italic;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+nav a {
+    font-size: 15px;
+    color: #63434b;
+    transition: color 0.3s ease;
+}
+
+nav a:hover,
+nav a.active {
+    color: #b35e75;
+    border-bottom: 1px solid #b35e75;
+}
+
+/* 3. HERO SECTION */
+
+.hero {
+    min-height: 80vh;
+
+    background:
+        linear-gradient(
+            rgba(40, 20, 28, 0.35),
+            rgba(40, 20, 28, 0.55)
+        ),
+        url("images/hero.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+    color: white;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero-content p:first-child {
+    font-size: 16px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 8vw, 75px);
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 19px;
+}
+
+/* 4. GENERAL SECTIONS */
+
+section {
+    padding: 80px 10%;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-heading h2 {
+    color: #8c4356;
+    font-size: 38px;
+    font-weight: normal;
+}
+
+.section-heading p {
+    color: #947c82;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+/* 5. WEDDING COUNTDOWN SECTION */
+
+.story-container {
+    max-width: 850px;
+    margin: auto;
+    text-align: center;
+}
+
+.story-container > h2 {
+    color: #8c4356;
+    font-size: 30px;
+    font-weight: normal;
+    margin-bottom: 8px;
+}
+
+.story-container > p {
+    color: #806c72;
+    margin-bottom: 20px;
+}
+
+/* Countdown layout */
+
+.countdown-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    max-width: 650px;
+    margin: 30px auto;
+}
+
+/* Countdown boxes */
+
+.countdown-box {
+    background-color: #f4e2e4;
+    border: 1px solid #ecd0d5;
+    padding: 22px 10px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(100, 50, 60, 0.06);
+    transition: transform 0.3s ease;
+}
+
+.countdown-box:hover {
+    transform: translateY(-5px);
+}
+
+.countdown-box span {
+    display: block;
+    font-size: 36px;
+    color: #8c4356;
+    font-weight: bold;
+}
+
+.countdown-box small {
+    font-size: 13px;
+    color: #806c72;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Countdown messages */
+
+#traditional-message,
+#white-message {
+    color: #a64d65;
+    font-style: italic;
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+/* Divider between wedding dates */
+
+hr {
+    border: none;
+    border-top: 1px solid #ecd0d5;
+    margin: 55px 0;
+}
+
+/* 6. FOREVER PROMISE SECTION */
+
+.story-container p {
+    font-size: 17px;
+    line-height: 2;
+    margin-bottom: 20px;
+}
+
+.story-container h2:last-child {
+    font-style: italic;
+    font-size: 30px;
+    font-weight: normal;
+}
+
+/* 7. FOOTER */
+
+footer {
+    background-color: #71394b;
+    color: #fffaf7;
+    text-align: center;
+    padding: 30px 15px;
+}
+
+footer p {
+    font-size: 14px;
+    margin: 5px;
+}
+
+/* 8. RESPONSIVE DESIGN */
+
+@media (max-width: 850px) {
+
+    header {
+        padding: 20px 5%;
+    }
+
+    nav {
+        gap: 15px;
+    }
+
+    section {
+        padding: 60px 7%;
+    }
+
+    .countdown-container {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    nav a {
+        font-size: 13px;
+    }
+
+    .hero {
+        min-height: 65vh;
+    }
+
+    .hero h1 {
+        font-size: 43px;
+    }
+
+    .hero-content p {
+        font-size: 15px;
+    }
+
+    section {
+        padding: 50px 6%;
+    }
+
+    .section-heading h2 {
+        font-size: 30px;
+    }
+
+    .countdown-container {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 350px;
+    }
+
+    .countdown-box {
+        padding: 18px 8px;
+    }
+
+    .countdown-box span {
+        font-size: 30px;
+    }
+
+    .story-container > h2 {
+        font-size: 25px;
+    }
+
+    .story-container p {
+        font-size: 15px;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="TJ.html" class="logo">T∞J ♡</a>
+
+        <nav>
+            <a href="TJ.html">Our Story</a>
+            <a href="memories.html">Memories</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="forever.html" class="active">Forever</a>
+            <a href="Open when.html">Open When...</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="hero">
+            <div class="hero-content">
+                <p>One promise. Two hearts. A lifetime.</p>
+                <h1>Our Forever</h1>
+                <p>And so our greatest adventure begins...</p>
+            </div>
+        </div>
+
+        <section>
+            <div class="section-heading">
+                <h2>The Next Chapters</h2>
+                <p>Two beautiful milestones on our way to forever.</p>
+            </div>
+
+            <div class="story-container">
+
+                <h2 style="color: #8c4356;">
+                    Our Traditional Wedding
+                </h2>
+
+                <p>28 August 2027</p>
+
+                <div class="countdown-container">
+                    <div class="countdown-box">
+                        <span id="traditional-days">0</span>
+                        <small>Days</small>
+                    </div>
+
+                    <div class="countdown-box">
+                        <span id="traditional-hours">0</span>
+                        <small>Hours</small>
+                    </div>
+
+                    <div class="countdown-box">
+                        <span id="traditional-minutes">0</span>
+                        <small>Minutes</small>
+                    </div>
+
+                    <div class="countdown-box">
+                        <span id="traditional-seconds">0</span>
+                        <small>Seconds</small>
+                    </div>
+                </div>
+
+                <p id="traditional-message">
+                    Counting down to a beautiful celebration of our love.
+                </p>
+
+                <hr style="border: 1px solid #f1dedb; margin: 55px 0;">
+
+                <h2 style="color: #8c4356;">
+                    Our White Wedding
+                </h2>
+
+                <p>4 September 2027</p>
+
+                <div class="countdown-container">
+                    <div class="countdown-box">
+                        <span id="white-days">0</span>
+                        <small>Days</small>
+                    </div>
+
+                    <div class="countdown-box">
+                        <span id="white-hours">0</span>
+                        <small>Hours</small>
+                    </div>
+
+                    <div class="countdown-box">
+                        <span id="white-minutes">0</span>
+                        <small>Minutes</small>
+                    </div>
+
+                    <div class="countdown-box">
+                        <span id="white-seconds">0</span>
+                        <small>Seconds</small>
+                    </div>
+                </div>
+
+                <p id="white-message">
+                    Counting down to the day we say "I do".
+                </p>
+
+            </div>
+        </section>
+
+        <section>
+            <div class="section-heading">
+                <h2>A Promise to Forever</h2>
+                <p>Something to remember, today and always.</p>
+            </div>
+
+            <div class="story-container">
+                <p>
+                    I choose you in the ordinary days and the extraordinary ones.
+                    I choose you through every season, every lesson and every
+                    adventure that life brings.
+                </p>
+
+                <p>
+                    May our home always be filled with faith, laughter,
+                    patience, kindness, music, friendship and love.
+                </p>
+
+                <p>
+                    May we never stop learning each other, growing together
+                    and finding reasons to fall in love all over again.
+                </p>
+
+                <h2 style="color: #8c4356; margin-top: 30px;">
+                    Forever looks beautiful with you. ♡
+                </h2>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Today, tomorrow and all the days after. ♡</p>
+        <p>Thea & Joe | Just the two of us</p>
+    </footer>
+
+    <script>
+      
+
+        const traditionalDate = new Date(2027, 7, 28, 0, 0, 0);
+        const whiteWeddingDate = new Date(2027, 8, 4, 0, 0, 0);
+
+        function updateCountdown(targetDate, prefix, messageId, completedMessage) {
+
+            const now = new Date();
+            const difference = targetDate - now;
+
+            if (difference <= 0) {
+                document.getElementById(prefix + "-days").textContent = "0";
+                document.getElementById(prefix + "-hours").textContent = "0";
+                document.getElementById(prefix + "-minutes").textContent = "0";
+                document.getElementById(prefix + "-seconds").textContent = "0";
+
+                document.getElementById(messageId).textContent = completedMessage;
+                return;
+            }
+
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+            const minutes = Math.floor((difference / (1000 * 60)) % 60);
+            const seconds = Math.floor((difference / 1000) % 60);
+
+            document.getElementById(prefix + "-days").textContent = days;
+            document.getElementById(prefix + "-hours").textContent = hours;
+            document.getElementById(prefix + "-minutes").textContent = minutes;
+            document.getElementById(prefix + "-seconds").textContent = seconds;
+        }
+
+        function runCountdowns() {
+
+            updateCountdown(
+                traditionalDate,
+                "traditional",
+                "traditional-message",
+                "Our traditional wedding day is here! ♡"
+            );
+
+            updateCountdown(
+                whiteWeddingDate,
+                "white",
+                "white-message",
+                "Today, we say I do! ♡"
+            );
+        }
+
+        runCountdowns();
+
+        // Refresh the countdown every second.
+        setInterval(runCountdowns, 1000);
+    </script>
+
+</body>
+</html>
