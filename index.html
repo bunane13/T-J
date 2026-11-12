@@ -1,0 +1,395 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Story | Thea & Joe</title>
+
+    <style> 
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background-color: #fffaf7;
+    color: #49333a;
+    line-height: 1.7;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+header {
+    width: 100%;
+    padding: 22px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fffaf7;
+    border-bottom: 1px solid #f1dedb;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 27px;
+    color: #8c4356;
+    font-style: italic;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+nav a {
+    font-size: 15px;
+    color: #63434b;
+    transition: color 0.3s ease;
+}
+
+nav a:hover,
+nav a.active {
+    color: #b35e75;
+    border-bottom: 1px solid #b35e75;
+}
+
+.hero {
+    min-height: 85vh;
+    background:
+        linear-gradient(
+            rgba(40, 20, 28, 0.35),
+            rgba(40, 20, 28, 0.50)
+        ),
+        url("images/hero.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+    color: white;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero-content p:first-child {
+    font-size: 17px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 8vw, 75px);
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 19px;
+}
+
+.hero-button {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 13px 32px;
+    background-color: #fffaf7;
+    color: #8c4356;
+    border-radius: 30px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.hero-button:hover {
+    background-color: #e8c5cc;
+    transform: translateY(-3px);
+}
+
+
+#our-story {
+    padding: 90px 10%;
+    background-color: #fffaf7;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-heading h2 {
+    font-size: 38px;
+    color: #8c4356;
+    font-weight: normal;
+}
+
+.section-heading p {
+    color: #947c82;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.story-container {
+    max-width: 850px;
+    margin: auto;
+    text-align: center;
+}
+
+.story-container p {
+    font-size: 17px;
+    line-height: 2;
+    margin-bottom: 22px;
+    color: #665159;
+}
+
+.story-container h2 {
+    font-size: 30px;
+    font-style: italic;
+    font-weight: normal;
+}
+
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.card {
+    background-color: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(100, 50, 60, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 10px 30px rgba(100, 50, 60, 0.13);
+}
+
+.card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.card h3 {
+    color: #8c4356;
+    font-size: 21px;
+    font-weight: normal;
+    margin-top: 15px;
+}
+
+.card p {
+    font-size: 14px;
+    color: #90777d;
+    margin-top: 5px;
+}
+
+
+footer {
+    background-color: #71394b;
+    color: #fffaf7;
+    text-align: center;
+    padding: 30px 15px;
+}
+
+footer p {
+    font-size: 14px;
+    margin: 5px;
+}
+
+
+@media (max-width: 850px) {
+
+    header {
+        padding: 20px 5%;
+    }
+
+    nav {
+        gap: 15px;
+    }
+
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    nav a {
+        font-size: 13px;
+    }
+
+    .hero {
+        min-height: 70vh;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+
+    #our-story {
+        padding: 60px 7%;
+    }
+
+    .section-heading h2 {
+        font-size: 30px;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card img {
+        height: 300px;
+    }
+}
+
+    </style>
+    
+</head>
+
+<body>
+
+    <header>
+        <a href="TJ.html" class="logo">T∞J ♡</a>
+
+        <nav>
+            <a href="TJ.html" class="active">Our Story</a>
+            <a href="Memories.html">Memories</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="forever.html">Forever</a>
+            <a href="Open when.html">Open When...</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="hero">
+            <div class="hero-content">
+                <p>Two hearts, one beautiful journey</p>
+                <h1>The Story of Us</h1>
+                <p>Every love story is beautiful, but ours is my favourite.</p>
+                <a href="#our-story" class="hero-button">Read Our Story ♡</a>
+            </div>
+        </div>
+
+        <section id="our-story">
+            <div class="section-heading">
+                <h2>How It All Began</h2>
+                <p>A little story about two people who found each other.</p>
+            </div>
+
+            <div class="story-container">
+                <p>
+                    It started with Joe`s birthday celebration in 2023,
+                    through a mutual friend, and a meeting that neither of us
+                    knew would become something so special.
+                </p>
+
+                <p>
+                    Somewhere along the way, conversations became
+                    memories, friendship became love, and two individual
+                    journeys began turning into one.
+                </p>
+
+                <p>
+                    On 7 November 2024, our relationship officially began.
+                    Since then, we have grown, learned, laughed,
+                    prayed, travelled, and continued choosing each other.
+                </p>
+
+                <p>
+                    And on 24 September 2026, we took another beautiful step
+                    towards forever. Joe bent the knee and we got engaged!
+                </p>
+
+                <p>
+                    This is our little corner of the world, a place to
+                    celebrate where we started, where we are, and
+                    everything still waiting for us.
+                </p>
+
+                <h2 style="color: #8c4356; margin-top: 35px;">
+                    Here's to us. Always. ♡
+                </h2>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-heading">
+                <h2>A Little Glimpse of Us</h2>
+                <p>Our favourite moments, one chapter at a time.</p>
+            </div>
+
+            <div class="card-grid">
+                <div class="card">
+                    <img src="sunset.JPG" alt="A favourite photo of us">
+                    <h3>One of Our Beginnings</h3>
+                    <p>Where I got to cross the water to meet you.</p>
+                </div>
+
+                <div class="card">
+                    <img src="xmas.JPG" alt="A special memory together">
+                    <h3>Our Journey</h3>
+                    <p>All the little moments that became everything. That night was wild</p>
+                </div>
+
+                <div class="card">
+                    <img src="prop.JPG" alt="Our engagement memory">
+                    <h3>Our Forever</h3>
+                    <p>One promise, a lifetime to go.</p>
+                </div>
+
+                <div class="card">
+                    <img src="valz.JPG" alt="Our valz memory">
+                    <h3>Our first Valentine's Day</h3>
+                    <p>I remember this time, surprised you in the wilderness</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Just the two of us ♡</p>
+        <p>T∞J♡ | Our Story</p>
+    </footer>
+
+</body>
+</html>
